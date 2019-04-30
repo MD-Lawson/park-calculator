@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Grid, Container } from 'semantic-ui-react';
+import Navbar from "./components/Navbar";
+import Title from "./components/Title";
+import Home from "./Home/Home";
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title />
+      <Grid>
+        <Grid.Row><Navbar /></Grid.Row>
+        <Grid.Row><Home /></Grid.Row>  
+      </Grid>
     </div>
   );
 }
