@@ -8,13 +8,13 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <Container className="App">
       <Title />
       <Grid>
         <Grid.Row><Navbar /></Grid.Row>
         <Grid.Row><Home /></Grid.Row>  
       </Grid>
-    </div>
+    </Container>
   );
 }
 

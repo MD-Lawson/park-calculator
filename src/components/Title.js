@@ -1,10 +1,9 @@
 import React from 'react';
+import {Header} from 'semantic-ui-react';
 
 function Title() {
   return (
-    <div className="Title">
-      <h2>Title</h2>
-    </div>
+    <Header as='h2'>Title</Header>
   );
 }
 
