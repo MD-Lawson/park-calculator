@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
+import Container from 'react-bootstrap/Container';
 
 
 class Navbar extends React.Component {

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Container, Grid, Button } from 'semantic-ui-react';
-
+import { Button, Card } from 'semantic-ui-react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class Home extends React.Component {
     constructor(){
@@ -13,17 +15,21 @@ class Home extends React.Component {
     render() {
         return (
             <Container>
-                <Grid>
-                    <Grid.Row>
-                        <Grid.Column>
+                <Card>
+                    <Row>
+                        <Col sm={12}>
                             <p>Number of Adults</p>
-                            
-                        </Grid.Column>
-                        <Grid.Column><Button circular icon='minus' /></Grid.Column>
-                        <Grid.Column><p>{this.state.numAdults}</p></Grid.Column>
-                        <Grid.Column><Button circular icon='plus' /></Grid.Column>
-                    </Grid.Row>
-                </Grid>
+                        </Col>
+                        {
+                            //<Col sm={9}></Col>
+                        }
+                    </Row>
+                    <Row style={{'paddingTop': '5px'}}>
+                        <Col><Button circular icon='minus' size='huge' /></Col>
+                        <Col><p style={{'fontSize': '2.5rem'}}>{this.state.numAdults}</p></Col>
+                        <Col><Button circular icon='plus' size='huge' /></Col>
+                    </Row>
+                </Card>
             </Container>
         )
     }
