@@ -30,18 +30,12 @@ function HowMany(props) {
                         'marginTop': '1%',
                         'marginBottom': '1%'
                     }}>
-                        {
-                            //<div style={{'width':'100%', 'paddingBottom': '100%', 'position': 'relative'}}>
-                        }
                             <Button variant='secondary' style={{
                                 'width': '3.5em',
                                 'height': '3.5em',
                                 'float': 'right',
                                 'borderRadius': '50%',
                             }} onClick={() => buttonClick(props.handleClick, false, adultCard)} ><FontAwesomeIcon icon='minus' size='2x' /> </Button>
-                        {
-                            //</Col></div>
-                        }
                     </Col>
                     <Col sm={2} style={{ 'padding': '0% 0%' }}><p style={{ 'fontSize': '2.5rem' }}>{adultCard ? props.numAdults : props.numChild}</p></Col>
                     <Col sm={5} style={{
