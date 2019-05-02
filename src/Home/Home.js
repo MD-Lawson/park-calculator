@@ -1,6 +1,8 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import { Button, Modal, Icon } from 'semantic-ui-react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HowMany from './howManyCard';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,10 +13,11 @@ class Home extends React.Component {
         this.state = {
             numAdults: 0,
             numChild: 0,
-            modalOpen: false,
+            modalShow: false,
         }
         this.handlePlusorMinusClick = this.handlePlusorMinusClick.bind(this);
-        this.handleModal = this.handleModal.bind(this);
+        this.handleModalShow = this.handleModalShow.bind(this);
+        this.handleModalClose = this.handleModalClose.bind(this);
     }
 
     handlePlusorMinusClick(adults, plus) {
@@ -29,10 +32,11 @@ class Home extends React.Component {
         }
     }
 
-    handleModal() {
-        this.setState({
-            modalOpen: !this.state.modalOpen
-        })
+    handleModalShow() {
+        this.setState({ modalShow: true })
+    }
+    handleModalClose() {
+        this.setState({ modalShow: false })
     }
 
     render() {
@@ -48,26 +52,28 @@ class Home extends React.Component {
                 </Row>
                 <Row>
                     <Col sm={3}>
-                        <Modal
-                            trigger={<Button circular icon='plus' size='massive' style={{ 'float': 'right' }} onClick={this.handleModal} />}
-                            open={this.state.modalOpen}
-                            size='small'>
-                             <Modal.Header >Select a park </Modal.Header>
-                            <Modal.Description>
-                                <h3>Test</h3>
-                            </Modal.Description>
-                            <Modal.Actions>
-                                <Button color='green' onClick={this.handleModal}>
-                                    <Icon name='checkmark' /> Confirm
+                        <Button variant='secondary' style={{
+                            'float': 'right', 'borderRadius': '50%', 'width': '4.5em',
+                            'height': '4.5em',
+                        }} onClick={this.handleModalShow}> <FontAwesomeIcon icon='plus' size='3x' />
                         </Button>
-                            </Modal.Actions>
+                        <Modal show={this.state.modalShow} onHide={this.handleModalClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Please Select A Park</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={this.handleModalClose}>
+                                    Select
+                                </Button>
+                            </Modal.Footer>
                         </Modal>
                     </Col>
                     <Col>
                         <p style={{
                             'float': 'left',
-                            'padding': '10px 0',
-                            'fontSize': '2rem'
+                            'paddingTop': '0.5%',
+                            'fontSize': '2.5rem'
                         }}>Add New Park</p>
                     </Col>
                 </Row>
