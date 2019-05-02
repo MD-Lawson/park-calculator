@@ -1,23 +1,34 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
 import Container from 'react-bootstrap/Container';
-
+import Button from 'react-bootstrap/Button';
 
 class Navbar extends React.Component {
 
     render() {
         return (
             <Container>
-                <Button.Group widths='4'>
-                    <Button color="blue" style={{ 'borderRight': '1px solid' }}>Home</Button>
-                    <Button color="blue" style={{ 'borderRight': '1px solid' }}>Parks</Button>
-                    <Button color="blue" style={{ 'borderRight': '1px solid' }}>About</Button>
-                    <Button color="blue">Travel</Button>
-                </Button.Group>
+                <Button variant="info" style={{
+                    'borderRight': '1px solid',
+                    'width': '25%',
+                    'fontSize':'1.5rem'
+                }}>Home</Button>
+                <Button variant="info" style={{
+                    'borderRight': '1px solid',
+                    'width': '25%',
+                    'fontSize':'1.5rem'
+                }}>Parks</Button>
+                <Button variant="info" style={{
+                    'borderRight': '1px solid',
+                    'width': '25%',
+                    'fontSize':'1.5rem'
+                }}>About</Button>
+                <Button variant="info" style={{
+                    'width': '25%',
+                    'fontSize':'1.5rem'
+                }}>Travel</Button>
             </Container>
         )
     }
-
 }
 
 export default Navbar;
