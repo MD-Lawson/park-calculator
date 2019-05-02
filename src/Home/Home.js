@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Card } from 'semantic-ui-react';
 import Container from 'react-bootstrap/Container';
 import HowMany from './howManyCard';
 import Row from 'react-bootstrap/Row';
@@ -17,9 +16,13 @@ class Home extends React.Component {
 
     handlePlusorMinusClick(adults, plus) {
         var numAdults = this.state.numAdults;
+        var numChild = this.state.numChild;
         if (adults) {
             if (plus) this.setState({ numAdults: numAdults + 1 })
             if (!plus && numAdults > 0) this.setState({ numAdults: numAdults - 1 })
+        }else{
+            if (plus) this.setState({ numChild: numChild + 1 })
+            if (!plus && numChild > 0) this.setState({ numChild: numChild - 1 })
         }
     }
 
@@ -31,7 +34,7 @@ class Home extends React.Component {
                         <HowMany title='Number of Adults' numAdults={this.state.numAdults} handleClick={this.handlePlusorMinusClick} />
                     </Col>
                     <Col>
-                    <HowMany title='Number of Children' numAdults={this.state.numAdults} handleClick={this.handlePlusorMinusClick} />
+                        <HowMany title='Number of Children' numChild={this.state.numChild} handleClick={this.handlePlusorMinusClick} />
                     </Col>
                 </Row>
             </Container>
