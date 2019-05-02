@@ -1,5 +1,7 @@
 import React from 'react';
-import { Grid, Container } from 'semantic-ui-react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Navbar from "./components/Navbar";
 import Title from "./components/Title";
 import Home from "./Home/Home";
@@ -9,11 +11,9 @@ import './App.css';
 function App() {
   return (
     <Container className="App">
-      <Title />
-      <Grid>
-        <Grid.Row><Navbar /></Grid.Row>
-        <Grid.Row><Home /></Grid.Row>  
-      </Grid>
+      <Title /> 
+        <Row style={{'marginBottom': '1%'}}><Navbar /></Row>
+        <Row><Home /></Row>  
     </Container>
   );
 }
