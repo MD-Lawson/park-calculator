@@ -17,6 +17,7 @@ class Home extends React.Component {
         this.handlePlusorMinusClick = this.handlePlusorMinusClick.bind(this);
         this.handleModal = this.handleModal.bind(this);
         this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
+        this.handleDayRadio = this.handleDayRadio.bind(this);
     }
 
     handlePlusorMinusClick(adults, plus) {
@@ -44,6 +45,10 @@ class Home extends React.Component {
         })
     }
 
+    handleDayRadio(value){
+        console.log(value);
+    }
+
     render() {
         return (
             <Container>
@@ -56,7 +61,7 @@ class Home extends React.Component {
                     </Col>
                 </Row>
 
-                <AddPark show={this.state.modalShow} dropDownText={this.state.dropDownText} handleModal={this.handleModal} onDropdown={this.handleDropdownSelect} />
+                <AddPark show={this.state.modalShow} dropDownText={this.state.dropDownText} handleModal={this.handleModal} onDropdown={this.handleDropdownSelect} handleDayRadio={this.handleDayRadio} />
             </Container>
         )
     }
