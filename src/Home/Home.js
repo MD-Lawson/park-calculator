@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import HowMany from './howManyCard';
 import AddPark from './addPark';
+import ParkCard from './parkCard';
 
 class Home extends React.Component {
     constructor() {
@@ -14,6 +15,12 @@ class Home extends React.Component {
             modalShow: false,
             dropDownText: "Select Park",
             numDays: 1,
+            addedParks: [{
+                title: 'Existence Park',
+                numDays: 20,
+                adultCost: 50,
+                childCost: 20,
+            }],
         }
         this.handlePlusorMinusClick = this.handlePlusorMinusClick.bind(this);
         this.handleModal = this.handleModal.bind(this);
@@ -45,8 +52,18 @@ class Home extends React.Component {
     handleAddPark() {
         var parkTitle = this.state.dropDownText;
         var numDays = this.state.numDays;
+        var newPark = {
+            title: parkTitle,
+            numDays:  numDays,
+            childCost: 100,
+            adultCost: 115,
+        }
 
         console.log(`Park title is ${parkTitle} and number of days is ${numDays}`)
+        this.setState({
+            addedParks: [...this.state.addedParks, newPark],
+            numDays: 1,
+        })
     }
 
     handleDropdownSelect(eventKey){
@@ -62,6 +79,7 @@ class Home extends React.Component {
     }
 
     render() {
+        console.log('Rendered');
         return (
             <Container>
                 <Row style={{ 'marginBottom': '5%' }}>
@@ -72,7 +90,25 @@ class Home extends React.Component {
                         <HowMany title='Number of Children' numChild={this.state.numChild} handleClick={this.handlePlusorMinusClick} />
                     </Col>
                 </Row>
-
+                <Row>
+                    <Col>
+                        { 
+                            this.state.addedParks.map((park) => {
+                                return (
+                                    <ParkCard 
+                                        title={park.title}
+                                        key={park.title}
+                                        numAdults={this.state.numAdults}
+                                        numChild={this.state.numChild}
+                                        childCost={park.childCost}
+                                        adultCost={park.adultCost}
+                                        numDays={park.numDays}
+                                    />
+                                )
+                            })
+                        }
+                    </Col>
+                </Row>
                 <AddPark show={this.state.modalShow} dropDownText={this.state.dropDownText} handleModal={this.handleModal} onDropdown={this.handleDropdownSelect} handleDayRadio={this.handleDayRadio} />
             </Container>
         )
