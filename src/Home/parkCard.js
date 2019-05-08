@@ -19,10 +19,15 @@ class ParkCard extends React.Component {
         }
     }
 
+    updateTotalCost(key, totalCost){
+
+    }
+
     render() {
         var adultTotal = this.props.numAdults * this.state.costAdult;
         var childTotal = this.props.numChild * this.state.costChild;
         var totalCost= adultTotal + childTotal;
+        this.updateTotalCost(this.props.key, totalCost)
         console.log('ParkCard Rendered')
         return (
             <Container style={{ 'marginBottom': '20px' }}>

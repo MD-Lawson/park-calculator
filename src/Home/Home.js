@@ -21,6 +21,8 @@ class Home extends React.Component {
                 adultCost: 50,
                 childCost: 20,
             }],
+            fullCost: 0,
+            parkTotals: {},
         }
         this.handlePlusorMinusClick = this.handlePlusorMinusClick.bind(this);
         this.handleModal = this.handleModal.bind(this);
@@ -78,16 +80,28 @@ class Home extends React.Component {
         })
     }
 
+    updateTotalCost(key, value){
+        var updatedPark = {key: value} 
+        this.setState({
+            parkTotals: {...this.state.parkTotals, updatedPark}
+        })
+    }
+
     render() {
         console.log('Rendered');
         return (
             <Container>
-                <Row style={{ 'marginBottom': '5%' }}>
+                <Row style={{ 'marginBottom': '3%' }}>
                     <Col>
                         <HowMany title='Number of Adults' numAdults={this.state.numAdults} handleClick={this.handlePlusorMinusClick} />
                     </Col>
                     <Col>
                         <HowMany title='Number of Children' numChild={this.state.numChild} handleClick={this.handlePlusorMinusClick} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <h1 style={{'paddingBottom': '2em'}}> Full cost is £{this.state.fullCost}.00</h1>
                     </Col>
                 </Row>
                 <Row>
