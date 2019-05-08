@@ -7,10 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function handleModal(callback, show) {
-    callback(show);
-}
-
 function AddPark(props) {
     return (
         <Row>
@@ -18,7 +14,7 @@ function AddPark(props) {
                 <Button variant='secondary' style={{
                     'float': 'right', 'borderRadius': '50%', 'width': '4.5em',
                     'height': '4.5em',
-                }} onClick={() => handleModal(props.callback, true)}> <FontAwesomeIcon icon='plus' size='3x' />
+                }} onClick={() => props.handleModal(true)}> <FontAwesomeIcon icon='plus' size='3x' />
                 </Button>
             </Col>
             <Col>
@@ -29,7 +25,7 @@ function AddPark(props) {
                 }}>Add New Park</p>
             </Col>
 
-            <Modal show={props.show} onHide={() => handleModal(props.callback, false)} size='lg'>
+            <Modal show={props.show} onHide={() => props.handleModal(false)} size='lg'>
                 <Modal.Header closeButton>
                     <Modal.Title>Please Select A Park</Modal.Title>
                 </Modal.Header>
@@ -52,7 +48,7 @@ function AddPark(props) {
                     </Row>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={() => handleModal(props.callback, false)}>
+                    <Button variant="secondary" onClick={() => props.handleModal(false)}>
                         Select
                                 </Button>
                 </Modal.Footer>

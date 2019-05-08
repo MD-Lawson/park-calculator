@@ -53,7 +53,7 @@ class Home extends React.Component {
                     </Col>
                 </Row>
 
-                <AddPark show={this.state.modalShow} dropDownText={this.state.dropDownText} callback={this.handleModal} onDropdown={this.handleDropdownSelect} />
+                <AddPark show={this.state.modalShow} dropDownText={this.state.dropDownText} handleModal={this.handleModal} onDropdown={this.handleDropdownSelect} />
             </Container>
         )
     }
