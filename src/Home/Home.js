@@ -12,9 +12,11 @@ class Home extends React.Component {
             numAdults: 0,
             numChild: 0,
             modalShow: false,
+            dropDownText: "Select Park",
         }
         this.handlePlusorMinusClick = this.handlePlusorMinusClick.bind(this);
         this.handleModal = this.handleModal.bind(this);
+        this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
     }
 
     handlePlusorMinusClick(adults, plus) {
@@ -33,6 +35,12 @@ class Home extends React.Component {
         this.setState({ modalShow: show })
     }
 
+    handleDropdownSelect(eventKey){
+        this.setState({
+            dropDownText: eventKey,
+        })
+    }
+
     render() {
         return (
             <Container>
@@ -45,7 +53,7 @@ class Home extends React.Component {
                     </Col>
                 </Row>
 
-                <AddPark show={this.state.modalShow} callback={this.handleModal} />
+                <AddPark show={this.state.modalShow} dropDownText={this.state.dropDownText} callback={this.handleModal} onDropdown={this.handleDropdownSelect} />
             </Container>
         )
     }

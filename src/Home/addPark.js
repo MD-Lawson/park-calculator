@@ -36,7 +36,7 @@ function AddPark(props) {
                 <Modal.Body>
                     <Row>
                         <Col>
-                            <ParkDropdown/>
+                            <ParkDropdown onSelect={props.onDropdown} dropDownText={props.dropDownText} />
                         </Col>
                         <Col>
                             <p style={{'fontSize':'1.5rem', 'float':'right'}}>Number of days: </p>
