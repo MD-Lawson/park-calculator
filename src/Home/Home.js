@@ -32,7 +32,10 @@ class Home extends React.Component {
     }
 
     handleModal(show) {
-        this.setState({ modalShow: show })
+        this.setState({ 
+            modalShow: show,
+            dropDownText: "Select Park",
+         })
     }
 
     handleDropdownSelect(eventKey){

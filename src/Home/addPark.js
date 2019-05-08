@@ -39,10 +39,10 @@ function AddPark(props) {
                         </Col>
                         <Col>
                             <ButtonGroup style={{'float':'left'}}>
-                                <Button variant='secondary'>1</Button>
-                                <Button variant='secondary'>2</Button>
-                                <Button variant='secondary'>3</Button>
-                                <Button variant='secondary'>4</Button>
+                                <Button variant='secondary' type='radio' >1</Button>
+                                <Button variant='secondary' type='radio' >2</Button>
+                                <Button variant='secondary' type='radio' >3</Button>
+                                <Button variant='secondary' type='radio' >4</Button>
                             </ButtonGroup>
                         </Col>
                     </Row>
