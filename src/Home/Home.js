@@ -13,11 +13,13 @@ class Home extends React.Component {
             numChild: 0,
             modalShow: false,
             dropDownText: "Select Park",
+            numDays: 1,
         }
         this.handlePlusorMinusClick = this.handlePlusorMinusClick.bind(this);
         this.handleModal = this.handleModal.bind(this);
         this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
         this.handleDayRadio = this.handleDayRadio.bind(this);
+        this.handleAddPark = this.handleAddPark.bind(this);
     }
 
     handlePlusorMinusClick(adults, plus) {
@@ -32,11 +34,19 @@ class Home extends React.Component {
         }
     }
 
-    handleModal(show) {
+    handleModal(show, isAdd) {
+        if(isAdd) this.handleAddPark()
         this.setState({ 
             modalShow: show,
             dropDownText: "Select Park",
          })
+    }
+
+    handleAddPark() {
+        var parkTitle = this.state.dropDownText;
+        var numDays = this.state.numDays;
+
+        console.log(`Park title is ${parkTitle} and number of days is ${numDays}`)
     }
 
     handleDropdownSelect(eventKey){
@@ -46,7 +56,9 @@ class Home extends React.Component {
     }
 
     handleDayRadio(value){
-        console.log(value);
+        this.setState({
+            numDays: value,
+        })
     }
 
     render() {

@@ -19,7 +19,7 @@ function AddPark(props) {
                 <Button variant='secondary' style={{
                     'float': 'right', 'borderRadius': '50%', 'width': '4.5em',
                     'height': '4.5em',
-                }} onClick={() => props.handleModal(true)}> <FontAwesomeIcon icon='plus' size='3x' />
+                }} onClick={() => props.handleModal(true, false)}> <FontAwesomeIcon icon='plus' size='3x' />
                 </Button>
             </Col>
             <Col>
@@ -30,7 +30,7 @@ function AddPark(props) {
                 }}>Add New Park</p>
             </Col>
 
-            <Modal show={props.show} onHide={() => props.handleModal(false)} size='lg'>
+            <Modal show={props.show} onHide={() => props.handleModal(false, false)} size='lg'>
                 <Modal.Header closeButton>
                     <Modal.Title>Please Select A Park</Modal.Title>
                 </Modal.Header>
@@ -53,8 +53,8 @@ function AddPark(props) {
                     </Row>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={() => props.handleModal(false)}>
-                        Select
+                    <Button variant="secondary" onClick={() => props.handleModal(false, true)}>
+                        Add
                     </Button>
                 </Modal.Footer>
             </Modal>
