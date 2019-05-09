@@ -5,11 +5,13 @@ import Col from 'react-bootstrap/Col';
 import HowMany from './howManyCard';
 import AddPark from './addPark';
 import ParkCard from './parkCard';
+import axios from 'axios';
 
 class Home extends React.Component {
     constructor() {
         super();
         this.state = {
+            parks: {},
             numAdults: 0,
             numChild: 0,
             modalShow: false,
@@ -29,6 +31,15 @@ class Home extends React.Component {
         this.handleDropdownSelect = this.handleDropdownSelect.bind(this);
         this.handleDayRadio = this.handleDayRadio.bind(this);
         this.handleAddPark = this.handleAddPark.bind(this);
+    }
+
+    componentDidMount(){
+        var parks = axios.get('https://15wv2yzw4k.execute-api.eu-west-1.amazonaws.com/test/Parks?TableName=Parks')
+            .then(function (res){
+                this.setState({
+                    parks: res.data.Items
+                })
+            });
     }
 
     handlePlusorMinusClick(adults, plus) {
